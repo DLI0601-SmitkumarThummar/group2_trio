@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class WishListItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int wishlist_item_id;
 
     @ManyToOne
     @JoinColumn(name = "wishlist_id")
