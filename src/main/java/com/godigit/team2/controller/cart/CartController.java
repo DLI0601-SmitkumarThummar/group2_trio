@@ -1,7 +1,7 @@
 package com.godigit.team2.controller.cart;
 
 import com.godigit.team2.entity.cart.Cart;
-import com.godigit.team2.service.CartServiceImpl;
+import com.godigit.team2.service.cart.CartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

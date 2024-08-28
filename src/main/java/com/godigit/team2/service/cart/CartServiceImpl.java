@@ -1,4 +1,4 @@
-package com.godigit.team2.service;
+package com.godigit.team2.service.cart;
 
 import com.godigit.team2.entity.cart.Cart;
 import com.godigit.team2.entity.cart.CartItem;
@@ -14,22 +14,28 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
-public class CartServiceImpl {
+public class CartServiceImpl implements CartService {
 
-    @Autowired
     private CartRepo cartRepo;
 
-    @Autowired
     private ProductRepo productRepo;
 
-    @Autowired
     private CartItemRepo cartItemRepo;
 
-    public Cart getCartByUserId(int userId) {
-        Cart cart = cartRepo.findByUserId(userId);
-        return cart;
+
+    @Autowired
+    public CartServiceImpl(CartRepo cartRepo, ProductRepo productRepo, CartItemRepo cartItemRepo) {
+        this.cartRepo = cartRepo;
+        this.productRepo = productRepo;
+        this.cartItemRepo = cartItemRepo;
     }
 
+    @Override
+    public Cart getCartByUserId(int userId) {
+        return cartRepo.findByUserId(userId);
+    }
+
+    @Override
     @Transactional
     public void addItemToCart(int userId, int productId, int quantity) {
         Cart cart = cartRepo.findByUserId(userId);
@@ -53,6 +59,7 @@ public class CartServiceImpl {
     }
 
 
+    @Override
     @Transactional
     public void updateCartItemQuantity(int cartItemId, int quantity) {
         Optional<CartItem> cartItemOpt = cartItemRepo.findById(cartItemId);
@@ -64,6 +71,7 @@ public class CartServiceImpl {
         }
     }
 
+    @Override
     @Transactional
     public void removeItemFromCart(int cartItemId) {
         Optional<CartItem> cartItemOpt = cartItemRepo.findById(cartItemId);
