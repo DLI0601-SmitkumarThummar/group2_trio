@@ -1,4 +1,4 @@
-package com.godigit.team2.controller;
+package com.godigit.team2.controller.cart;
 
 import com.godigit.team2.entity.cart.Cart;
 import com.godigit.team2.service.CartServiceImpl;

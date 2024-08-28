@@ -5,6 +5,7 @@ import com.godigit.team2.entity.cart.CartItem;
 import com.godigit.team2.entity.product.Product;
 import com.godigit.team2.repository.cart.CartItemRepo;
 import com.godigit.team2.repository.cart.CartRepo;
+import com.godigit.team2.repository.product.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,9 @@ public class CartServiceImpl {
 
     @Autowired
     private CartRepo cartRepo;
+
+    @Autowired
+    private ProductRepo productRepo;
 
     @Autowired
     private CartItemRepo cartItemRepo;
@@ -36,8 +40,8 @@ public class CartServiceImpl {
             cart = cartRepo.save(cart);
         }
 
-        Product product=new Product();
-        //Product product = productRepo.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+
+        Product product = productRepo.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
 
         CartItem cartItem = new CartItem();
         cartItem.setCart(cart);
