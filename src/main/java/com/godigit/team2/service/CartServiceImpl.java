@@ -2,6 +2,7 @@ package com.godigit.team2.service;
 
 import com.godigit.team2.entity.cart.Cart;
 import com.godigit.team2.entity.cart.CartItem;
+import com.godigit.team2.entity.product.Product;
 import com.godigit.team2.repository.CartItemRepo;
 import com.godigit.team2.repository.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +36,18 @@ public class CartServiceImpl {
             cart = cartRepo.save(cart);
         }
 
+        Product product=new Product();
+        //Product product = productRepo.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+
         CartItem cartItem = new CartItem();
         cartItem.setCart(cart);
-        cartItem.setProductId(productId);
+        cartItem.setProduct(product); // Set the Product entity instead of productId
         cartItem.setQuantity(quantity);
         cart.getItems().add(cartItem);
 
         cartRepo.save(cart);
     }
+
 
     @Transactional
     public void updateCartItemQuantity(int cartItemId, int quantity) {
