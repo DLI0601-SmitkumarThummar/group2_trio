@@ -3,7 +3,7 @@ package com.godigit.team2.service.register;
 import com.godigit.team2.entity.user.User;
 import com.godigit.team2.repository.user.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
