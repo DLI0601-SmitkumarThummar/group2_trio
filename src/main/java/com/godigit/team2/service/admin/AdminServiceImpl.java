@@ -19,6 +19,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void addAdmin(Admin admin) {
+        System.out.println(admin.getEmail());
+        System.out.println(admin.getPassword());
         adminRepo.save(admin);
     }
 
