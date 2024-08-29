@@ -38,4 +38,4 @@ public class AdminController {
         adminServiceImpl.addAdmin(admin);
         return "Admin Added";
     }
-}
+} 
