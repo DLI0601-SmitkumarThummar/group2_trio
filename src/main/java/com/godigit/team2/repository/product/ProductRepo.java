@@ -10,6 +10,10 @@ import java.util.List;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Integer> {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2d7e7d57508bcc64afbf49674b42587cba06a14a
     @Query("SELECT p FROM Product p WHERE p.product_name LIKE %:keyword% OR p.product_author LIKE %:keyword1%")
     List<Product> findByNameContainingOrAuthorContaining(@Param("keyword") String keyword, @Param("keyword1") String keyword1);
 }
