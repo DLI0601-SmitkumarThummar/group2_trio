@@ -12,8 +12,13 @@ import java.util.List;
 @RequestMapping("/digit_e-kart/orders")
 public class OrderController {
 
-    @Autowired
+
     private OrderServiceImp orderService;
+
+    @Autowired
+    public OrderController(OrderServiceImp orderService) {
+        this.orderService = orderService;
+    }
 
     @PostMapping("/add")
     public ResponseEntity<?> placeOrder(@RequestBody Order order) {

@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class ProductServiceImp implements ProductService {
-<<<<<<< HEAD
 
     private ProductRepo productRepository;
 
@@ -18,10 +17,6 @@ public class ProductServiceImp implements ProductService {
         this.productRepository = productRepository;
     }
 
-=======
-    @Autowired
-    private ProductRepo productRepository;
->>>>>>> 2d7e7d57508bcc64afbf49674b42587cba06a14a
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();

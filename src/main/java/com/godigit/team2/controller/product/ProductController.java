@@ -20,23 +20,20 @@ public class ProductController {
         this.productService = productService;
     }
 
-<<<<<<< HEAD
-    @GetMapping
-=======
-    @GetMapping("")
->>>>>>> 2d7e7d57508bcc64afbf49674b42587cba06a14a
+
+    @GetMapping("/all")
     public ResponseEntity<List<Product>> GetAllProducts() {
         List<Product> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search_by_key")
     public ResponseEntity<List<Product>> SearchProducts(@RequestParam String keyword) {
         List<Product> products = productService.searchProducts(keyword);
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/search/{id}")
     public ResponseEntity<Product> GetProductById(@PathVariable int id) {
         Product product = productService.getProductById(id);
         if (product != null) {

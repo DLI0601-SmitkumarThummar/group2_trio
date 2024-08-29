@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class OrderServiceImp implements OrderService{
-<<<<<<< HEAD
 
     private OrderRepo orderRepository;
 
@@ -21,13 +20,7 @@ public class OrderServiceImp implements OrderService{
         this.orderRepository = orderRepository;
         this.orderItemRepository = orderItemRepository;
     }
-=======
-    @Autowired
-    private OrderRepo orderRepository;
 
-    @Autowired
-    private OrderItemRepo orderItemRepository;
->>>>>>> 2d7e7d57508bcc64afbf49674b42587cba06a14a
 
     public Order placeOrder(Order order) {
 
