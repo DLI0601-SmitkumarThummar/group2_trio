@@ -21,6 +21,7 @@ public class AdminProductServiceImpl implements AdminProductService {
 
     @Override
     public void newProduct(ProductDTO productDTO) {
+        
         Product product = new Product(productDTO);
         productRepo.save(product);
     }
