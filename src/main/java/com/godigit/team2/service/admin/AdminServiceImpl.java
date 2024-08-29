@@ -25,7 +25,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Boolean checkAdmin(String username, String password) {
         return adminRepo.findAll().stream()
-                .anyMatch(a -> a.getUsername().equals(username) && a.getPassword().equals(password)); 
+                .anyMatch(a -> a.getUsername().equals(username) && a.getPassword().equals(password));
     }
 
 

@@ -1,5 +1,7 @@
 package com.godigit.team2.entity.customer_details;
 
+import com.godigit.team2.dto.CustomerDTO;
+import com.godigit.team2.dto.ProductDTO;
 import com.godigit.team2.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,5 +32,13 @@ public class CustomerDetails {
     private String address;
 
     private String phone;
+
+    public CustomerDetails(CustomerDTO customerDTO) {
+        this.user = customerDTO.getUser();
+        this.email = customerDTO.getEmail();
+        this.name = customerDTO.getName();
+        this.address = customerDTO.getAddress();
+        this.phone = customerDTO.getPhone();
+    }
 
 }

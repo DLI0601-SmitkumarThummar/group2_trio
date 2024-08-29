@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/digit_e-kart/adminproduct")
-public class AdminProductController { 
+public class AdminProductController {
 
     AdminProductServiceImpl adminProductServiceImpl;
 
