@@ -3,20 +3,31 @@ package com.godigit.team2.controller.cart;
 import com.godigit.team2.entity.cart.Cart;
 import com.godigit.team2.service.cart.CartServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/digit_e-kart/cart")
 public class CartController {
 
-    @Autowired
+
     private CartServiceImpl cartService;
 
-    @GetMapping("/{userId}")
-    public Cart getCart(@PathVariable int userId) {
-        Cart cart = cartService.getCartByUserId(userId);
-        return cart;
+    @Autowired
+    public CartController(CartServiceImpl cartService) {
+        this.cartService = cartService;
     }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<Cart> getCart(@PathVariable int userId) {
+        Cart cart = cartService.getCartByUserId(userId);
+        if (cart != null) {
+            return ResponseEntity.ok(cart);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     @PostMapping("/add/{userId}")
     public String addItemToCart(@PathVariable int userId, @RequestParam int productId, @RequestParam int quantity) {
