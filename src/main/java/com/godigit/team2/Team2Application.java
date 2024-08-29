@@ -11,4 +11,6 @@ public class Team2Application {
         SpringApplication.run(Team2Application.class, args);
     }
 
+    //http://localhost:8080/swagger-ui/index.html#/
+
 }
